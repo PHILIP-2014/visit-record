@@ -21,7 +21,7 @@ CREATE TABLE `user` (
   `gmt_created` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1001 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `record`
@@ -39,7 +39,7 @@ CREATE TABLE `record` (
   `gmt_created` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `require`
@@ -55,7 +55,7 @@ CREATE TABLE `require` (
   `gmt_created` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `agenda`
@@ -74,4 +74,4 @@ CREATE TABLE `agenda` (
   `gmt_created` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
