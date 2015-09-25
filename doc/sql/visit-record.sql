@@ -18,6 +18,7 @@ CREATE TABLE `user` (
   `age` int(5) DEFAULT NULL COMMENT '年龄',
   `address` varchar(40) DEFAULT NULL COMMENT '住址',
   `type` int(4) DEFAULT NULL COMMENT '类型: \n 0:同工 \n 1:朋友男, 2:朋友女 \n 3:弟兄, 4:姊妹 \n 5:男孩, 6:女孩',
+  `is_disable` tinyint(1) DEFAULT NULL COMMENT '0:正常;1:删除',
   `gmt_created` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
