@@ -71,7 +71,7 @@ CREATE TABLE `agenda` (
   `gmt_start` datetime DEFAULT NULL COMMENT '开始时间',
   `gmt_end` datetime DEFAULT NULL COMMENT '结束时间',
   `address` varchar(40) DEFAULT NULL COMMENT '地点',
-  `is_disabled` tinyint(1) NOT NULL DEFAULT 0 COMMENT '已废除',
+  `is_disable` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0:正常;1:删除',
   `gmt_created` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
