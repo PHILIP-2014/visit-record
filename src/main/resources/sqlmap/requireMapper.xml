@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.church.dao.RequireDao" >
+	
+	<sql id="default_column">
+		`require`.`id`,
+		`require`.`uid_target` as uidTarget,
+		`require`.`gmt_deadline` as gmtDeadline,
+		`require`.`reason`,
+		`require`.`is_token` as isToken,
+		`require`.`gmt_created` as gmtCreated,
+		`require`.`gmt_modify` as gmtModify
+	</sql>
+	
+</mapper>

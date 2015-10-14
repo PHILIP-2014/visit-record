@@ -1,0 +1,20 @@
+<div id="people-detail" px-aside-item aside-item-title="个人会话" is-active="vm.partStatus.peopleDetail" >
+    <div class="px-accordion-group" px-accordion-group close-others="false" ng-controller="PeopleDetailController">
+        <px-accordion  accordion-icon="file-0" accordion-subtitle="files.length||fileTotalLength" accordion-title="个人文档"
+                       icon-color="#3e50b4" is-expand="vm.files" on-toggle="onToggle($event,isExpand)" class="px-line-none">
+            <file-panel show-toolbar="false" panel-type="people" conversation-id="vm.conversationId" page-size="100" config="vm"></file-panel>
+        </px-accordion>
+
+        <px-accordion  accordion-icon="calendar" accordion-subtitle="agendas.length||agendasTotalLength" accordion-title="个人日程" icon-color="#2095f2" is-expand="vm.agenda" on-toggle="onToggle($event,isExpand)">
+            <div ng-controller="PeopleAgendaController">
+                <agenda-panel agenda-groups="agendaGroups" type="partial">
+
+                </agenda-panel>
+            </div>
+        </px-accordion>
+
+        <px-accordion  accordion-icon="task" accordion-subtitle="tasks.length||taskTotalLength" accordion-title="个人任务" icon-color="#65ba69" is-expand="vm.task" on-toggle="onToggle($event,isExpand)">
+            <task-panel class="people-task" show-toolbar="false" conversation-id="vm.conversationId" panel-type="people" type="3" page-size="200"></task-panel>
+        </px-accordion>
+    </div>
+</div>

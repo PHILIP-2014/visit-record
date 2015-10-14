@@ -1,0 +1,5 @@
+<div id="global-task" px-aside-item aside-item-title="任务" aside-item-header-background="#f5f5f5" is-active="vm.globalStatus.globalTask" class="px-team-detail">
+    <div ng-controller="GlobalTaskController" style="height: 100%;">
+        <task-panel class="global-task" show-toolbar="vm.showToolbar" conversation-id="0" panel-type="global" type="0" page-size="15"></task-panel>
+    </div>
+</div>

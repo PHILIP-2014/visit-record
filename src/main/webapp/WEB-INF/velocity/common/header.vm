@@ -1,0 +1,33 @@
+
+<link rel="shortcut icon" href="#springUrl('/images/favicon.png')">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="派乐Parox是全新的企业协同云平台，让你与你的团队以前所未有的方式开展工作，用户可以直接沟通，建立工作空间，与特定的人或组织开展合作，可以将文档、任务、目标、项目、日程日历等关于工作的信息，连同工作相关的人像社交网络那样组织在一起。派乐Parox使得我们能够更加清晰地了解任务的规模、进度以及人员状态，让我们回归工作的本质要求：高效便捷地获取资源。" />
+<meta name="keywords" content="道曼派乐,parox,网络办公,云办公软件,协同办公,高效办公,时间管理,工作日历,任务分配,日程管理,轻办公,工作流程管理,云储存,考勤管理,工作日程管理软件,工作沟通,文件管理,项目管理,文件共享,即时沟通,团队沟通" />
+<meta name="author" content="www.parox.cn" />
+<meta name="application-name" content="www.parox.cn" />
+#loadCss([
+	"/css/bootstrap/bootstrap.css",
+	"/css/bootstrap/parox-font-icon.css",
+	"/css/style.css",
+	"/js/lib/custom-scrollbar/jquery.mCustomScrollbar.min.css",
+    "/js/lib/zTree_v3/css/zTreeStyle/zTreeStyle.css",
+    "/js/lib/fullcalendar/fullcalendar.min.css",
+    "/js/lib/g_code_prettify/prettify.css"
+],"","$!{scriptVersion}")
+
+
+<script type="text/javascript">
+
+    var userAgent=window.navigator.userAgent;
+    var version=(userAgent.match( /.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [])[1];
+    var isIE11=/[M|m]ozilla/.test(userAgent) && !/(compatible|webkit)/.test( userAgent )&&version==11;
+    var reg=new RegExp("(Android|iPhone|SymbianOS|Windows Phone|iPad|iPod|midp|rv:1.2.3.4|ucweb|windows ce)");//bIsUc7 -- "rv:1.2.3.4";
+        //判断手机端的跳转到下载app页面
+    if(userAgent.match(reg)){
+        window.location.href="/m/p/user/invite#!download";
+    }
+    //浏览器低版本
+    if(userAgent.indexOf('MSIE')!==-1||isIE11){
+        window.location.href="/lowBrowser";
+    }
+</script>

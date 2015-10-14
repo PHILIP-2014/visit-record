@@ -1,0 +1,139 @@
+
+<!--[if IE]>
+<h1>对不起，你的浏览器版本太低，请升级</h1>
+<![endif]-->
+
+<div id="loading-page" style="width:100%;height:100%;overflow:hidden;position:fixed;top:0;left:0;z-index:9999;background:#0893d2;text-align:center;">
+    <div style="position:absolute;top:40%;left:0;right:0;bottom:0;margin:auto;color:#fff;">
+        <h1 class="loading">加载中</h1>
+        <p>派乐 · 分享快速 工作超越</p>
+    </div>
+
+</div>
+
+<div class="px-full-screen">
+    <!--右侧导航区-->
+    #parse('common/side-bar.vm')
+    <!--主要内容区-->
+    <div class="px-content">
+        <!--群组会话时，显示的头部-->
+        #parse('common/content-head.vm')
+
+        <px-content-body  is-part-open="vm.asideConfig.isPartOpen" is-global-open="vm.asideConfig.isGlobalOpen">
+            <!--右侧区域-->
+            <div class="px-content-side tab-content" ng-controller="AsideController" aside-group="">
+                <div class="px-aside" is-active="vm.asideConfig.isPartOpen" aside="part">
+                    #parse('common/team-detail.vm')
+
+                    #parse('common/people-detail.vm')
+
+                </div>
+
+                <div class="px-aside" is-active="vm.asideConfig.isGlobalOpen" aside="global" style="z-index: 100;">
+                    <div id="global-member" px-aside-item aside-item-title="联系人"
+                         aside-item-header-background="#f5f5f5"
+                         is-active="vm.globalStatus.globalMember">
+
+                        <contact-panel></contact-panel>
+                    </div>
+
+                    #parse('common/global-favorite.vm')
+
+
+
+                    #parse('common/global-file.vm')
+
+                    #parse('common/global-task.vm')
+
+                    #parse('common/global-agenda.vm')
+                    #parse('common/global-search.vm')
+
+                </div>
+
+            </div>
+            <!--路由渲染区-->
+            <div class="px-message-container" ui-view>
+
+            </div>
+        </px-content-body>
+    </div>
+
+</div>
+
+
+<div class="global-progressbar" ng-show="vm.uploadingFile">
+    <progressbar  value="vm.uploadingFile.progress"></progressbar>
+    <span style="position:absolute;left:0;top:0;color: #fff;margin-left: 10px;">{{'正在上传文件：'+vm.uploadingFile.file.name+'... '+vm.currentItem.progress+'%'}} ( {{fileUploader?fileUploader.index:''}}{{'/'}}{{fileUploader?fileUploader.fileLength:''}} )</span>
+    <a href="javascript:;" style="position:absolute;right:10px;top:0;" ng-click="vm.uploadingFile.cancel()">取消上传</a>
+</div>
+
+<input type="file" multiple name="file-upload" style="width: 0;height: 0;" global-file-input nv-file-select uploader="fileUploader" options="fileItemOption"/>
+
+<div class="back-drop drop-desc" ng-show="vm.isUpload" px-dropzone></div>
+
+<side-viewer is-open="vm.isAgendaViewerOpen" title="日程" type="agenda">
+    <agenda-detail-panel agenda="agenda"></agenda-detail-panel>
+</side-viewer>
+
+<side-viewer is-open="vm.isTaskViewerOpen" title="任务" type="task">
+    <task-detail-panel task="currentTask"></task-detail-panel>
+</side-viewer>
+
+<script>
+
+    #if(${user})
+    window.sessionUser = $!{user};
+    #else
+    window.sessionUser = null;
+    #end
+
+
+    window.config=${config};
+
+    window.initData=${init};
+	
+	window.scriptVersion="$!{scriptVersion}";
+</script>
+
+<script type="text/javascript">
+
+    (function($document,$window){
+        var base=$window.location.host;
+        var scripts=[
+            'lib/jquery/jquery-1.11.2.js',
+            'lib/jquery/jquery.noty.packaged.js',
+            'lib/angular/angular.bundle.min.js',
+            'lib/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js',
+            'lib/seajs/sea.js',
+            'template.min.js',
+            'sea.config.js'
+        ];
+
+        var isProduction=window.config.debug=='true'?false:true;
+        var base=isProduction?'../dist/??':'../js/';
+
+        if(isProduction){
+            //如果是生产环境，合并请求
+            createScript(base,scripts.join(','));
+        }else{
+            createScript(base,scripts);
+        }
+
+        function createScript(baseSrc,src){
+            var html='';
+            if(src instanceof Array){
+                src.forEach(function(add){
+                    html+='<script src="'+(baseSrc+add)+'?v=${scriptVersion}"><\/script>';
+                });
+
+            }else{
+
+                html+='<script src="'+(baseSrc+src)+'?v=${scriptVersion}"><\/script>';
+            }
+            $document.write(html);
+        }
+        $window.name='paroxIM';
+
+    })(document,this);
+
+</script>

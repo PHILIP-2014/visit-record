@@ -1,0 +1,54 @@
+#set($layout="/layout/blank.vm")
+<!DOCTYPE html>
+<html>
+    <head lang="zh-CN">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>派乐注册</title>
+        <link rel="stylesheet" href="/js/lib/ionic/css/ionic.min.css"/>
+        <link rel="stylesheet" href="${config.webRoot}/css/mobile/style.css">
+    </head>
+    <body ng-app="m.startup" ng-controller="AppController">
+
+        <ion-nav-view></ion-nav-view>
+
+        <script>
+            #if("$!{inviteUid}"!='' || "$!{inviteCid}" != "" || "$!{inviteTid}"!="")
+                window.inviteMsg={inviteUid:"$!{inviteUid}",inviteCid:"$!{inviteCid}",inviteTid:"$!{inviteTid}",targetAccount:"$!{targetAccount}"};
+            #end
+
+            /*邀请者的信息*/
+            #if(${userProfile})
+                window.inviteUser=${userProfile};
+            #else
+                window.inviteUser=null;
+            #end
+
+            /*邀请到的群组信息*/
+            #if(${teamModel})
+                window.inviteTeam=${teamModel};
+            #else
+                window.inviteTeam=null;
+            #end
+
+            #if(${companyModel})
+                window.inviteCompany=${companyModel};
+            #else
+                window.inviteCompany=null;
+            #end
+
+            #if(${config})
+                window.config=${config};
+            #else
+                window.config=null;
+            #end
+
+            window.scriptVersion="$!{scriptVersion}";
+        </script>
+        <script src="/js/lib/jquery/jquery-1.11.2.js"></script>
+        <script src="/js/lib/ionic/js/ionic.bundle.min.js"></script>
+        <script src="/js/lib/angular/angular-resource.min.js"></script>
+        <script src="/dist/module/mobile/m.register.min.js?v=$!{scriptVersion}"></script>
+    </body>
+</html>
