@@ -31,8 +31,8 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `record` COMMENT '反馈记录表';
 CREATE TABLE `record` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '记录ID',
-  `uid_target` bigint(10) NOT NULL DEFAULT 0l COMMENT '被探访者ID',
-  `uid_visitor` bigint(10) NOT NULL DEFAULT 0l COMMENT '探访者ID',
+  `uid_target` bigint(10) NOT NULL DEFAULT 0 COMMENT '被探访者ID',
+  `uid_visitor` bigint(10) NOT NULL DEFAULT 0 COMMENT '探访者ID',
   `visitors` varchar(20) DEFAULT NULL COMMENT '随从探访者IDs',
   `gmt_visit` datetime DEFAULT NULL COMMENT '探访时间',
   `logs` varchar(150) DEFAULT NULL DEFAULT '' COMMENT '情况日志记录',
@@ -49,7 +49,7 @@ CREATE TABLE `record` (
 DROP TABLE IF EXISTS `require` COMMENT '需求记录表';
 CREATE TABLE `require` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '需求ID',
-  `uid_target` bigint(10) NOT NULL DEFAULT 0l COMMENT '需探访者ID',
+  `uid_target` bigint(10) NOT NULL DEFAULT 0 COMMENT '需探访者ID',
   `gmt_deadline` datetime DEFAULT NULL COMMENT '截止时间',
   `reason` varchar(50) DEFAULT '' COMMENT '缘由记录',
   `is_token` tinyint(1) DEFAULT 0 COMMENT '已被领取',

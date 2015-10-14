@@ -16,4 +16,26 @@
 		`user`.`gmt_modify` as gmtModify
 	</sql>
 	
+	<insert id="insert" parameterType="com.church.model.User" keyProperty="id">
+		insert into b_user (
+			`name`,
+			`phone`,
+			`password`,
+			`age`,
+			`address`,
+			`type`,
+			`is_disable`,
+			`gmt_created`,
+			`gmt_modify`)
+		values (
+			#{name},
+			#{phone},
+			#{password},
+			#{age},
+			#{address},
+			#{type},
+			#{isDisable},
+			now(),now())
+	</insert>
+	
 </mapper>
