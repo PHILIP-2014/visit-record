@@ -110,28 +110,7 @@
     <script src="http://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    (function () {
-    	  'use strict';
-    	  if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-    	    var msViewportStyle = document.createElement('style')
-    	    msViewportStyle.appendChild(
-    	      document.createTextNode(
-    	        '@-ms-viewport{width:auto!important}'
-    	      )
-    	    )
-    	    document.querySelector('head').appendChild(msViewportStyle)
-    	  }
-    	})();
     
-    $(function(){
-    	// gheading links
-    	$('#docs-content').find('a[name]').each(function () {
-    	    var anchor = $('<a href="#' + this.name + '"/>');
-    	    $(this).parent().next().wrapInner(anchor);
-    	})
-    });
-    </script>
 </body>
 
 </html>
