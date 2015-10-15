@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>home page</title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Philip">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.4/styles/monokai_sublime.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top site-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">
+                <img class="logo" src="img/logo.png">
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="./">首页</a>
+                    </li>
+                    <li><a href="docs/">中文文档</a>
+                    </li>
+                    <li><a href="docs/getting-started/">入门指南</a>
+                    </li>
+                    <li><a href="docs/api/">API</a>
+                    </li>
+                    <li><a href="docs/writing-a-plugin/">插件开发</a>
+                    </li>
+                    <li><a href="docs/faq/">常见问题</a>
+                    </li>
+                    <li><a href="docs/recipes/">使用技巧</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <header class="jumbotron">
+        <img class="hidden" src="img/PHILIP.png" width="800" height="600">
+        <h1><span class="text-hide">Philip.js</span><h2>Visit Record<h2></h1>
+        <p class="lead">人生的旅途...未必天色常蓝,花香常漫</p>
+        <a href="https://github.com/PHILIP-2014"><img class="github" src="img/githubbai.png"></a>
+        <p><a class="btn btn-lg btn-default btn-getting-started" href="" role="button">添加用户</a>
+        </p>
+    </header>
+
+    <main class="benefits container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>易于使用</h2>
+                <p>通过代码优于配置的策略，Gulp 让简单的任务简单，复杂的任务可管理。</p>
+            </div>
+            <div class="col-md-6">
+                <h2>构建快速</h2>
+                <p>利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>插件高质</h2>
+                <p>Gulp 严格的插件指南确保插件如你期望的那样简洁高质得工作。</p>
+            </div>
+            <div class="col-md-6">
+                <h2>易于学习</h2>
+                <p>通过最少的 API，掌握 Gulp 毫不费力，构建工作尽在掌握：如同一系列流管道。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Site footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Philip 中文网 2015</p>
+            <p>浙ICP备14043796号-1</p>
+        </div>
+    </footer>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    (function () {
+    	  'use strict';
+    	  if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    	    var msViewportStyle = document.createElement('style')
+    	    msViewportStyle.appendChild(
+    	      document.createTextNode(
+    	        '@-ms-viewport{width:auto!important}'
+    	      )
+    	    )
+    	    document.querySelector('head').appendChild(msViewportStyle)
+    	  }
+    	})();
+    
+    $(function(){
+    	// gheading links
+    	$('#docs-content').find('a[name]').each(function () {
+    	    var anchor = $('<a href="#' + this.name + '"/>');
+    	    $(this).parent().next().wrapInner(anchor);
+    	})
+    });
+    </script>
+</body>
+
+</html>
