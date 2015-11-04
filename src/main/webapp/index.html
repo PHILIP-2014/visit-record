@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/self/form-ext.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -69,7 +70,7 @@
         <h1><span class="text-hide">Philip.js</span><h2>Visit Record<h2></h1>
         <p class="lead">人生的旅途...未必天色常蓝,花香常漫</p>
         <a href="https://github.com/PHILIP-2014"><img class="github" src="img/githubbai.png"></a>
-        <p><a class="btn btn-lg btn-default btn-getting-started" href="" role="button">添加用户</a>
+        <p><a class="btn btn-lg btn-default btn-getting-started" data-toggle="modal" data-target="#myModal" href="" role="button">添加用户</a>
         </p>
     </header>
 
@@ -96,8 +97,76 @@
             </div>
         </div>
     </main>
+    
+    <!-- modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content col-sm-9 col-xs-9">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">添加用户</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group pull-left" style="width: 100%;">
+							<div class="col-sm-2 col-xs-2">
+								<label for="message-text" class="">姓名:</label>
+							</div>
+							<div class="col-sm-6 col-xs-6">
+								<input type="text" class="form-control" id="name">
+							</div>
+							<div class="col-sm-3 col-xs-3">
+								<select id="type"
+									style="line-height: 32px; height: 32px; margin-left: -20px; width: 100%; background: transparent; border-radius: 2px; border-color: #ccc;">
+									<option value="3">Bro</option>
+									<option value="4">Sis</option>
+									<option value="1">FrM</option>
+									<option value="2">FrF</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group pull-left" style="width: 100%;">
+							<div class="col-sm-2 col-xs-2">
+								<label for="message-text" class="control-label">手机:</label>
+							</div>
+							<div class="col-sm-6 col-xs-6">
+								<input class="form-control" id="phone">
+							</div>
+						</div>
+						<div class="form-group pull-left" style="width: 100%;">
+							<div class="col-sm-2 col-xs-2">
+								<label for="message-text" class="control-label">年龄:</label>
+							</div>
+							<div class="col-sm-6 col-xs-6">
+								<input class="form-control" id="age">
+							</div>
+						</div>
+						<div class="form-group pull-left" style="width: 100%;">
+							<div class="col-sm-2 col-xs-2">
+								<label for="message-text" class="control-label">住址:</label>
+							</div>
+							<div class="col-sm-6 col-xs-6">
+								<input class="form-control" id="address">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer" style="clear:both;">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary">提交</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
 
-    <!-- Site footer -->
+
+	<!-- Site footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; Philip 中文网 2015</p>

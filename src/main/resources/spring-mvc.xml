@@ -94,7 +94,6 @@
 	
 	<!-- 拦截器配置 -->  
     <!-- <mvc:interceptors>
-		session超时
 		<bean class="com.church.utils.MemberContextInterceptor">
 			<property name="loginUrl" value="/login" />
 			<property name="excludeUrls">
@@ -109,6 +108,6 @@
 				</list>
 			</property>
 		</bean>
-	</mvc:interceptors>  -->
+	</mvc:interceptors> --> 
 	
 </beans>
