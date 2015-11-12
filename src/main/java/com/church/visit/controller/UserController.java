@@ -13,23 +13,32 @@ import com.church.visit.service.UserService;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 	
 	@Autowired
 	private UserService userService;
 
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseBody
-	public User create(HttpServletRequest request, User user) {
-		
-		userService.create(user);
-		
-		return null;
-	}
-	
 	public User login(HttpServletRequest request, User user) {
 
+		User _user = userService.doLogin(user);
+//		setSessionUser(request, initSessionUser(_user));
 		
-		return null;
+		return _user;
 	}
+
+	@RequestMapping(value="/create", method=RequestMethod.POST)
+	@ResponseBody
+	public User create(HttpServletRequest request, User user) {
+		
+		return userService.create(user, getUid(request));
+	}
+	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		removeSession(request, SESSION_KEY);
+		return "redirect:/login.htm"; //FIXME
+	}
+	
 }

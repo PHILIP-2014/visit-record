@@ -1,7 +1,7 @@
 package com.church.visit.model;
 
 
-public class User extends BaseModel {
+public class User extends Base {
 	
 	/**
 	 * 
