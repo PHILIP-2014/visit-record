@@ -1,7 +1,0 @@
-<div id="global-agenda" px-aside-item aside-item-title="日程" is-active="vm.globalStatus.globalAgenda" aside-item-header-background="#f5f5f5" class="px-team-detail">
-    <div ng-controller="GlobalAgendaController">
-        <agenda-panel agenda-groups="agendaGroups" type="global">
-
-        </agenda-panel>
-    </div>
-</div>

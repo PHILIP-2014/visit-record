@@ -18,7 +18,13 @@ public class UserController extends BaseController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login() {
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody
 	public User login(HttpServletRequest request, User user) {
 

@@ -1,5 +1,0 @@
-<div id="global-search" px-aside-item aside-item-title="搜索结果" is-active="vm.globalStatus.globalSearch" aside-item-header-background="#f5f5f5">
-    <div ng-controller="GlobalSearchController">
-        <search-panel show-toolbar="vm.showToolbar" search-key="vm.key" panel-type="global"  page-size="15"></search-panel>
-    </div>
-</div>
