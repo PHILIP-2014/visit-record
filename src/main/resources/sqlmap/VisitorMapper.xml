@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.church.visit.dao.VisitorDao">
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="commonColumns">
+	    <![CDATA[
+        	id as id ,
+        	rid as rid ,
+        	uid as uid ,
+        	gmt_create as gmtCreate ,
+        	gmt_modify as gmtModify 
+	    ]]>
+	</sql>
+    
+	<!-- 新增记录 -->
+	<insert id="insert" parameterType="com.church.visit.model.Visitor" useGeneratedKeys="true" keyProperty="id" >
+    <![CDATA[
+        INSERT INTO visitor (
+        	id ,
+        	rid ,
+        	uid ,
+        	gmt_create ,
+        	gmt_modify 
+        ) VALUES (
+        	#{id} ,
+        	#{rid} ,
+        	#{uid} ,
+        	#{gmtCreate} ,
+        	#{gmtModify} 
+        )
+    ]]>
+        <selectKey resultType="java.lang.Long" keyProperty="id" >
+            select last_insert_id()
+        </selectKey>
+    </insert>
+	
+	<!-- 更新记录 -->
+	<update id="updateById" parameterType="com.church.visit.model.Visitor">
+        UPDATE visitor
+        <set>
+	        <if test="rid != null">
+				rid = #{rid},
+			</if>
+	        <if test="uid != null">
+				uid = #{uid},
+			</if>
+	        <if test="gmtCreate != null">
+				gmt_create = #{gmtCreate},
+			</if>
+	        <if test="gmtModify != null">
+				gmt_modify = #{gmtModify},
+			</if>
+		</set>
+	    <![CDATA[ WHERE 
+	        id = #{id} 
+        ]]>
+    </update>
+
+	<!-- 根据主键查询 -->
+    <select id="getById" parameterType="java.lang.Long" resultType="com.church.visit.model.Visitor">
+	    select <include refid="commonColumns"/>
+	    <![CDATA[ from visitor where 
+		        id = #{id} 
+	    ]]>
+    </select>
+
+</mapper>

@@ -53,7 +53,7 @@ public class UserService {
 		if(_user.getIsDisable()) {
 			
 		}
-		if(!pwdEncoder.isPasswordValid(_user.getPassword(), _user.getPassword())) {
+		if(!pwdEncoder.isPasswordValid(_user.getPwd(), _user.getPwd())) {
 			
 		}
 		return user;

@@ -15,7 +15,7 @@ public class Base implements Serializable{
 	private Long id;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date gmtCreated;
+	private Date gmtCreate;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date gmtModify;
@@ -28,12 +28,12 @@ public class Base implements Serializable{
 		this.id = id;
 	}
 	
-	public Date getGmtCreated() {
-		return gmtCreated;
+	public Date getGmtCreate() {
+		return gmtCreate;
 	}
 	
-	public void setGmtCreated(Date gmtCreated) {
-		this.gmtCreated = gmtCreated;
+	public void setGmtCreate(Date gmtCreate) {
+		this.gmtCreate = gmtCreate;
 	}
 	
 	public Date getGmtModify() {

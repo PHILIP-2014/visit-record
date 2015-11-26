@@ -49,7 +49,7 @@ CREATE TABLE `record` (
 DROP TABLE IF EXISTS `visitor` COMMENT '探访人员记录表';
 CREATE TABLE `visitor` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
-  `rid` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '记录ID',
+  `rid` bigint(10) NOT NULL DEFAULT 0 COMMENT '记录ID',
   `uid` bigint(10) NOT NULL DEFAULT 0 COMMENT '探访者ID',
   `gmt_create` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
@@ -59,7 +59,9 @@ CREATE TABLE `visitor` (
 --
 -- Table structure for table `agenda`
 --
-
+/**
+ * 日程功能暂时不加
+ */
 DROP TABLE IF EXISTS `agenda` COMMENT '日程记录表';
 CREATE TABLE `agenda` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '日程ID',
