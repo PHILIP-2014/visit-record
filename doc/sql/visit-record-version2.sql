@@ -2,8 +2,8 @@
 --create db
 --
 
-CREATE DATABASE  IF NOT EXISTS `visit-record`;
-USE `visit-record`;
+CREATE DATABASE  IF NOT EXISTS `visit`;
+USE `visit`;
 
 --
 -- Table structure for table `user`
