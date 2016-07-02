@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
 <mapper namespace="com.church.visit.dao.UserDao">
 	<!-- 用于select查询公用抽取的列 -->
@@ -94,5 +94,11 @@
 		        id = #{id} 
 	    ]]>
     </select>
+
+	<select id="queryByName" parameterType="java.lang.String" resultType="com.church.visit.model.User">
+		select <include refid="commonColumns"/>
+		from `user`
+		where name = #{name}
+	</select>
 
 </mapper>

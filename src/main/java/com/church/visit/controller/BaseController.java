@@ -1,12 +1,15 @@
 package com.church.visit.controller;
 
+import com.church.visit.model.User;
+import com.church.visit.utils.SessionUser;
+import org.springframework.stereotype.Controller;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import com.church.visit.model.User;
-import com.church.visit.utils.SessionUser;
 
+@Controller
 public class BaseController {
 	
 	public final static String SESSION_KEY = "sessionuserkey";

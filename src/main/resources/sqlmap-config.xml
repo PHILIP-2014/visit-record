@@ -11,9 +11,8 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
     </settings>
     
     <mappers>
-        <mapper resource="sqlmap/agendaMapper.xml" />
+        <mapper resource="sqlmap/visitorMapper.xml" />
         <mapper resource="sqlmap/recordMapper.xml" />
-        <mapper resource="sqlmap/requireMapper.xml" />
         <mapper resource="sqlmap/userMapper.xml" />
     </mappers>
 

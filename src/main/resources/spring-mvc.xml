@@ -34,11 +34,10 @@
     
 	<!-- 对静态资源文件的访问 -->
 	<mvc:annotation-driven />
-    <mvc:resources mapping="/*.html" location="/*.html" cache-period="0"/>
     <mvc:resources mapping="/img/**" location="/img/" cache-period="31556926"/>
     <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
     <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
-    <mvc:resources mapping="/s/**" location="/s/" cache-period="31556926"/>
+    <mvc:resources mapping="/fonts/**" location="/fonts/" cache-period="31556926"/>
 	
 	<bean id="freemarkerResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">		
 		<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>		
