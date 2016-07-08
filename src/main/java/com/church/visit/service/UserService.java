@@ -3,6 +3,8 @@ package com.church.visit.service;
 import com.church.visit.dao.UserDao;
 import com.church.visit.model.User;
 import com.church.visit.utils.PwdEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,7 +13,7 @@ import javax.annotation.Resource;
  * @author philip
  *
  */
-@Service("userService")
+@Component("userService")
 public class UserService {
 	
 	@Resource
