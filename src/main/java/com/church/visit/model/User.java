@@ -1,8 +1,11 @@
 package com.church.visit.model;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 /**
  * User
  */
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class User extends Base {
 		
 	/**

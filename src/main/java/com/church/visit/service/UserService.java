@@ -3,9 +3,8 @@ package com.church.visit.service;
 import com.church.visit.dao.UserDao;
 import com.church.visit.model.User;
 import com.church.visit.utils.PwdEncoder;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -15,6 +14,8 @@ import javax.annotation.Resource;
  */
 @Component("userService")
 public class UserService {
+
+	final static Logger logger = Logger.getLogger(UserService.class);
 	
 	@Resource
 	private UserDao userDao;
@@ -50,14 +51,26 @@ public class UserService {
 
 		User _user = userDao.queryByName(user.getName());
 		if(_user == null) {
-			
+			logger.info("sorry, user not found");
+			throw new IllegalArgumentException("sorry, user not found");
 		}
 		if(_user.getIsDisable()) {
-			
+			logger.info("sorry, user forbidden");
+			throw new IllegalArgumentException("sorry, user forbidden");
 		}
-		if(!pwdEncoder.isPasswordValid(_user.getPwd(), _user.getPwd())) {
-			
+		if(!pwdEncoder.isPasswordValid(user.getPwd(), _user.getPwd())) {
+			logger.info("sorry, pwd forbidden");
+			throw new IllegalArgumentException("sorry, pwd forbidden");
 		}
+		return hideUser(_user);
+	}
+
+	private User hideUser(User user) {
+		user.setPwd(null);
+		user.setGmtCreate(null);
+		user.setGmtModify(null);
+		user.setIsDisable(null);
+		logger.info(String.format("Hiding user : id = ", user.getId()));
 		return user;
 	}
 	
