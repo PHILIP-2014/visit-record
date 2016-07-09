@@ -5,6 +5,9 @@ import com.church.visit.utils.SessionUser;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,5 +62,19 @@ public class BaseController {
 	public void removeSession(HttpServletRequest request, String sessionKey) {
 		request.getSession().removeAttribute(sessionKey);
 	}
-	
+
+	/**
+	 * 处理error
+	 * @param request
+	 * @param response
+	 * @param errorCode
+	 */
+	public void sendError(HttpServletRequest request, HttpServletResponse response, String errorCode){
+		try {
+			response.addHeader("CB_ERROR", URLEncoder.encode(errorCode, "utf-8"));
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, errorCode);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

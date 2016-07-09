@@ -1,6 +1,7 @@
 package com.church.visit.service;
 
 import com.church.visit.dao.UserDao;
+import com.church.visit.exception.ServiceException;
 import com.church.visit.model.User;
 import com.church.visit.utils.PwdEncoder;
 import org.apache.log4j.Logger;
@@ -47,20 +48,20 @@ public class UserService {
 	 * @param user
 	 * @return
 	 */
-	public User doLogin(User user) {
+	public User doLogin(User user) throws ServiceException {
 
 		User _user = userDao.queryByName(user.getName());
 		if(_user == null) {
-			logger.info("sorry, user not found");
-			throw new IllegalArgumentException("sorry, user not found");
+			logger.info(String.format("sorry, user not found : 【%s】", user.getName()));
+			throw new ServiceException("sorry, user not found");
 		}
 		if(_user.getIsDisable()) {
-			logger.info("sorry, user forbidden");
-			throw new IllegalArgumentException("sorry, user forbidden");
+			logger.info(String.format("sorry, user forbidden : 【%s】", user.getName()));
+			throw new ServiceException("sorry, user forbidden");
 		}
 		if(!pwdEncoder.isPasswordValid(user.getPwd(), _user.getPwd())) {
-			logger.info("sorry, pwd forbidden");
-			throw new IllegalArgumentException("sorry, pwd forbidden");
+			logger.info(String.format("sorry, pwd forbidden : 【%s】", user.getName()));
+			throw new ServiceException("sorry, pwd forbidden");
 		}
 		return hideUser(_user);
 	}
